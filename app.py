@@ -7,10 +7,10 @@ import numpy as np
 with open("dectree_model.pkl","rb") as f:
     model = pickle.load(f)
 
-st.title("Tweet Toxic/Non-toxic Predictor")
+st.title("Tweet Classification Model")
 st.write("This is a simple web app to predict whether a tweet is toxic or non-toxic using a pre-trained Decision Tree Classifier.")
 
-tweet = st.text_input("Please enter your tweet")
+tweet = st.text_input("Enter Tweet Text")
 
 import nltk
 import re
@@ -31,13 +31,13 @@ def Clean(text):
   lemmatized_tokens = [WordNetLemmatizer().lemmatize(token) for token in filtered_tokens]
   return " ".join(lemmatized_tokens)
 
-if st.button("Predict Class"):
+if st.button("Predict Tweert Class"):
     cleaned_text = Clean(tweet)
 
     result = model.predict([cleaned_text])[0]
 
     if result == 0:
-       st.success("Predicted Class : Non-Toxic")
+       st.success("Predicted Tweet Class : Non-Toxic")
     else:
-       st.success("Predicted Class : Toxic")
+       st.success("Predicted Tweet Class : Toxic")
     
