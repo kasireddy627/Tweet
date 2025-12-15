@@ -10,7 +10,7 @@ with open("dectree_model.pkl","rb") as f:
 st.title("Tweet Classification Model")
 st.write("This is a simple web app to predict whether a tweet is toxic or non-toxic using a pre-trained Decision Tree Classifier.")
 
-tweet = st.text_input("Enter Tweet Text")
+tweet = st.text_input("Enter your tweet here:")
 
 import nltk
 import re
@@ -37,7 +37,7 @@ if st.button("Predict Tweert Class"):
     result = model.predict([cleaned_text])[0]
 
     if result == 0:
-       st.success("Predicted Tweet Class : Non-Toxic")
+       st.success("Predicted Tweet : Non-Toxic")
     else:
-       st.success("Predicted Tweet Class : Toxic")
+       st.success("Predicted Tweet : Toxic")
     
