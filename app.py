@@ -31,7 +31,7 @@ def Clean(text):
   lemmatized_tokens = [WordNetLemmatizer().lemmatize(token) for token in filtered_tokens]
   return " ".join(lemmatized_tokens)
 
-if st.button("Predict Tweert Class"):
+if st.button("Predict The Tweet"):
     cleaned_text = Clean(tweet)
 
     result = model.predict([cleaned_text])[0]
